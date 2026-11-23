@@ -98,10 +98,10 @@ local function GetZoneTrackState(header)
     return total, watched, info.title
 end
 
-local function SetCheckboxVisual(button, total, watched)
+local function SetCheckboxVisual(button, total, watched, removeOnClick)
     local allWatched = total > 0 and watched == total
     local partial = watched > 0 and watched < total
-    local blocked = (total == 0) or (allWatched and not CanUntrack())
+    local blocked = (total == 0) or (removeOnClick and not CanUntrack())
     button.CheckMark:SetShown(allWatched)
     button.Partial:SetShown(partial)
     button:SetEnabled(not blocked)
@@ -234,8 +234,8 @@ end
 
 local function FillAllTrackTooltip(tooltip)
     local total, watched = GetAllTrackState()
-    local allWatched = total > 0 and watched == total
-    GameTooltip_SetTitle(tooltip, allWatched and QUEST_LOG_UNTRACK_ALL or QUEST_LOG_TRACK_ALL)
+    local remove = watched > 0
+    GameTooltip_SetTitle(tooltip, remove and QUEST_LOG_UNTRACK_ALL or QUEST_LOG_TRACK_ALL)
     if total > 0 then
         GameTooltip_AddNormalLine(
             tooltip,
@@ -243,12 +243,12 @@ local function FillAllTrackTooltip(tooltip)
         )
         GameTooltip_AddNormalLine(
             tooltip,
-            allWatched and "Click to untrack every quest in your log." or "Click to track every quest in your log."
+            remove and "Click to untrack every quest in your log." or "Click to track every quest in your log."
         )
     else
         GameTooltip_AddErrorLine(tooltip, "No quests to track.")
     end
-    if allWatched and not CanUntrack() then
+    if remove and not CanUntrack() then
         GameTooltip_AddErrorLine(tooltip, "Quest untracking is currently restricted.")
     end
 end
@@ -302,7 +302,7 @@ end
 local function ToggleAllTracking()
     local total, watched = GetAllTrackState()
     if total == 0 then return end
-    local remove = watched == total
+    local remove = watched > 0
     if remove and not CanUntrack() then
         UIErrorsFrame:AddExternalErrorMessage("Quest untracking is currently restricted.")
         return
@@ -422,7 +422,7 @@ Refresh = function()
 
     if allTrackButton then
         local totalQuests, watchedQuests = GetAllTrackState()
-        SetCheckboxVisual(allTrackButton, totalQuests, watchedQuests)
+        SetCheckboxVisual(allTrackButton, totalQuests, watchedQuests, watchedQuests > 0)
         if GameTooltip:IsOwned(allTrackButton) then
             GameTooltip:ClearLines()
             FillAllTrackTooltip(GameTooltip)
@@ -438,7 +438,7 @@ Refresh = function()
             header.CollapseButton:ClearAllPoints()
             header.CollapseButton:SetPoint("RIGHT", button, "LEFT", HEADER_CONTROL_GAP, 0)
             local total, watched = GetZoneTrackState(header)
-            SetCheckboxVisual(button, total, watched)
+            SetCheckboxVisual(button, total, watched, total > 0 and watched == total)
             button:Show()
             if GameTooltip:IsOwned(button) then
                 GameTooltip:ClearLines()
