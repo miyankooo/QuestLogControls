@@ -1,4 +1,4 @@
-# Quest Log Controls
+# Simple Quest Tracking
 
 A WoW Forever addon that adds native quest tracking and section collapse controls directly into the Quest Log, with zero extra bars or panels.
 
@@ -17,4 +17,4 @@ A WoW Forever addon that adds native quest tracking and section collapse control
 3. Click the top checkbox beside it to untrack all quests or track all quests.
 4. Click any zone header checkbox to toggle tracking for all quests in that zone.
 
-Type `/qlc help` for commands, or `/qlc intro` to see the welcome line and tip again.
+Type `/sqt help` for commands, or `/sqt intro` to see the welcome line and tip again.

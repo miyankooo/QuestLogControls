@@ -480,11 +480,11 @@ events:RegisterEvent("QUEST_WATCH_LIST_CHANGED")
 events:SetScript("OnEvent", function(self, event, name)
     if event == "ADDON_LOADED" then
         if name == addonName then
-            ns.firstRun = QuestLogControlsDB == nil
-            if type(QuestLogControlsDB) ~= "table" then
-                QuestLogControlsDB = {}
+            ns.firstRun = SimpleQuestTrackingDB == nil
+            if type(SimpleQuestTrackingDB) ~= "table" then
+                SimpleQuestTrackingDB = {}
             end
-            ns.db = QuestLogControlsDB
+            ns.db = SimpleQuestTrackingDB
         end
         Initialize()
         if hooked and ns.db then
