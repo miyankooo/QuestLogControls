@@ -1,0 +1,11 @@
+## Interface: 16001
+## Title: Quest Log Controls
+## Notes: Track or untrack all quests, toggle zone tracking, and collapse or expand all sections in the Quest Log.
+## Author: miyanko
+## Version: @project-version@
+## Category: Quests
+## IconTexture: Interface\QuestFrame\UI-QuestLog-BookIcon
+## SavedVariables: QuestLogControlsDB
+
+Onboarding.lua
+QuestLogControls.lua
