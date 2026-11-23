@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/miyankooo/SimpleQuestTracking/main/.github/icon.png" width="64" height="64" alt="">
+
 # Simple Quest Tracking
 
 A WoW Forever addon that adds native quest tracking and section collapse controls directly into the Quest Log, with zero extra bars or panels.
