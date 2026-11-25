@@ -2,21 +2,32 @@
 
 # Simple Quest Tracking
 
-A WoW Forever addon that adds native quest tracking and section collapse controls directly into the Quest Log, with zero extra bars or panels.
+Track, untrack, collapse and expand all your quests in one click, right inside the Quest Log.
+
+- **Track or untrack** every quest at once
+- **Toggle** tracking per zone
+- **Collapse or expand** every section
+
+## Why use it
+
+- **One click instead of dozens.** No more ticking quests one by one.
+- **Looks like Blizzard's.** Native checkboxes and buttons beside the quest count.
+- **No extra bars.** The quest list keeps its full height.
 
 ## Features
 
-- Zone checkboxes: every zone header gets a native Quest Log checkbox aligned vertically with the individual quest checkboxes beneath it, showing tracked, partial or untracked state.
-- Track All and Untrack All: a matching top bar checkbox aligned above the checkbox column untracks all quests when any are tracked, or tracks every quest in your log when none are tracked.
-- Collapse All and Expand All: a native plus and minus toggle aligned above the header collapse buttons collapses all sections when any are open, or expands all sections when all are collapsed.
-- Native integration: uses Blizzard's own Quest Log checkbox, checkmark, highlight and collapse atlases beside the quest count without reducing quest list scroll height.
-- Nothing to set up.
+- A checkbox on every zone header, showing tracked, partly tracked or untracked
+- Track All and Untrack All: the top checkbox untracks all quests when any are tracked, and tracks every quest when none are
+- Collapse All and Expand All: the top plus or minus collapses all sections when any are open, and expands them all when all are collapsed
+- Nothing to set up
 
-## Usage
+## Quick start
 
-1. Open the Quest Log with L or M.
-2. Click the top plus or minus button beside the quest count to collapse or expand all sections.
-3. Click the top checkbox beside it to untrack all quests or track all quests.
-4. Click any zone header checkbox to toggle tracking for all quests in that zone.
+1. Open the Quest Log with L or M
+2. Click the top plus or minus beside the quest count to collapse or expand all sections
+3. Click the top checkbox beside it to untrack or track all quests
+4. Click a zone header's checkbox to toggle every quest in that zone
 
-Type `/sqt help` for commands, or `/sqt intro` to see the welcome line and tip again.
+## Commands
+
+`/sqt help` lists the commands, and `/sqt intro` shows the welcome line and the tip again
